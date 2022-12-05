@@ -89,34 +89,55 @@
       </div>
       
       <div class="split right">
+        <div class="header"> Tap Online IDE</div>
             <div class="control-panel">
                 Select Language:
                 &nbsp; &nbsp;
                 <select id="languages" class="languages" onchange="changeLanguage()">
+                    <option value="python"> Python</option>
                     <option value="c"> C</option>
                     <option value="cpp"> C++</option>
                     <option value="php"> PHP</option>
-                    <option value="python"> Python</option>
-                    <option value="java"> java</option>
+                    <option value="java"> Java</option>
                 </select>
             </div>
-            <div class="editor" id="editor">#include&ltstdio.h&gt<br>int main() {
-                    printf("Hello, World!");
-                    return 0;
-                }
-            </div>
-            
-            <div class="button-container">
-                <button class="btn" onclick=""> Run</button>
-            </div>
-            
-            <div class="output" id="output"></div>
-            
-            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-            <script src="js/lib/ace.js"></script>
-            <script src="js/lib/theme-monokai.js"></script>
-            <script src="js/ide.js"></script>
+        <div class="editor" id="editor"></div>
+
+        <div class="button-container">
+            <button class="btn" onclick="executeCode()"> Run</button>
         </div>
+
+        <!--<div class="output" id="output">-->
+        <!--    <div class="txt" id="txt" style="visibility: hidden">-->
+        <!--        <textarea name="text" id="txt1" rows="0" cols="30"></textarea>-->
+        <!--    </div>-->
+        <div class="tab">
+            <button class="tablinks" id="defaultOpen" onclick="openCity(event, 'Output1')">Output</button>
+            <button class="tablinks" onclick="openCity(event, 'Testcase')">Testcase</button>
+        </div>
+        <!--</div>-->
+        <div id="Output1" class="tabcontent">
+            <div class="output" id="output"></div>
+        </div>
+
+        <div id="Testcase" class="tabcontent">
+            <div class="txt" id="txt" >
+                <textarea name="text" id="txt1" rows="0" cols="30"></textarea>
+            </div>
+        </div>   
     </div>
+    </div>
+
+    <script>
+        document.getElementById("defaultOpen").click();
+        document.getElementById("defaultOpen").click();
+    </script>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="js/lib/ace.js"></script>
+    <script src="js/lib/theme-monokai.js"></script>
+    <script src="js/ide.js"></script>
+
+
 </body>
 </html>
